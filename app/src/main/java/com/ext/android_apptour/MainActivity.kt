@@ -1,5 +1,6 @@
 package com.ext.android_apptour
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ext.apptour.AppTour
+import com.ext.apptour.HighlightShape
 import com.ext.apptour.TourStep
 
 class MainActivity : AppCompatActivity() {
@@ -22,12 +24,10 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<View>(R.id.button)
 
         AppTour.with(this)
+            .setHighlightPadding(10)
+            .setHighlightShape(HighlightShape.ROUNDED_RECTANGLE)
             .addStep(
-                TourStep(
-                    view = button,
-                    title = "Button",
-                    description = "Click this button"
-                )
+                TourStep(button,"Button","Click this button")
             )
             .start()
     }
