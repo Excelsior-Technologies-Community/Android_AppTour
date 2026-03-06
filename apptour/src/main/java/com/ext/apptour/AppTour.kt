@@ -77,8 +77,21 @@ class AppTour private constructor(
         step.view.getLocationOnScreen(location)
 
         tooltip.post {
-            tooltip.x = location[0].toFloat()
-            tooltip.y = (location[1] + step.view.height + 20).toFloat()
+
+            val viewLocation = IntArray(2)
+            val rootLocation = IntArray(2)
+
+            step.view.getLocationOnScreen(viewLocation)
+            rootView.getLocationOnScreen(rootLocation)
+
+            val relativeX = viewLocation[0] - rootLocation[0]
+            val relativeY = viewLocation[1] - rootLocation[1]
+
+            val viewBottom = relativeY + step.view.height
+
+            tooltip.x = relativeX + (step.view.width / 2f) - (tooltip.width / 2f)
+
+            tooltip.y = viewBottom + 30f
         }
         tooltip.setBackgroundColor(tooltipBackground)
 
