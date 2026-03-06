@@ -62,7 +62,7 @@ dependencyResolutionManagement {
 
 ```gradle
 dependencies {
-	        implementation 'com.github.Excelsior-Technologies-Community:Android_GlobalLoaderOverlay:Tag'
+	        implementation 'com.github.Excelsior-Technologies-Community:Android_AppTour:1.0.0'
 	}
 ```
 
